@@ -1,15 +1,32 @@
 import {
   Document,
-  PDFViewer,
+  Font,
   Page,
   StyleSheet,
   Text,
   View,
 } from "@react-pdf/renderer";
 
+Font.register({
+  family: "HackGen35",
+  fonts: [
+    {
+      src: "/HackGen35-Regular.ttf",
+      fontStyle: "normal",
+      fontWeight: "normal",
+    },
+    {
+      src: "/HackGen35-Bold.ttf",
+      fontStyle: "normal",
+      fontWeight: "bold",
+    },
+  ],
+});
+
 // Create styles
 const styles = StyleSheet.create({
   page: {
+    fontFamily: "HackGen35",
     flexDirection: "row",
     backgroundColor: "#E4E4E4",
   },
@@ -17,6 +34,9 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     flexGrow: 1,
+  },
+  boldText: {
+    fontWeight: "bold",
   },
 });
 
@@ -32,7 +52,7 @@ const PDFDocument = () => (
       </View>
       <View style={styles.section}>
         <Text>Section #2</Text>
-        <Text>こんにちは</Text>
+        <Text style={styles.boldText}>太字です</Text>
       </View>
     </Page>
   </Document>
