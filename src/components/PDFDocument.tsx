@@ -39,14 +39,3 @@ const PDFDocument = () => (
 );
 
 export default PDFDocument;
-
-/**
- * PDFViewer は web specific API を含むため Client Side 向け
- */
-export const MyPDFViewer = () => {
-  return (
-    <PDFViewer className="mx-auto" width={1200} height={1000}>
-      <PDFDocument />
-    </PDFViewer>
-  );
-};

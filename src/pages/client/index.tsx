@@ -1,10 +1,11 @@
 "use client";
 
+import PDFDocument from "@/components/PDFDocument";
 import dynamic from "next/dynamic";
 import type { NextPageWithLayout } from "../_app";
 
-const DynamicPDFDocument = dynamic(
-  () => import("@/components/PDFDocument").then((mod) => mod.MyPDFViewer),
+const DynamicPDFViewer = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
   {
     loading: () => <p>Loading...</p>,
     ssr: false,
@@ -15,7 +16,11 @@ const DynamicPDFDocument = dynamic(
  * Client Side でPDFをレンダリングする
  */
 const Page: NextPageWithLayout = () => {
-  return <DynamicPDFDocument />;
+  return (
+    <DynamicPDFViewer className="mx-auto" width={1200} height={1000}>
+      <PDFDocument />
+    </DynamicPDFViewer>
+  );
 };
 
 export default Page;
