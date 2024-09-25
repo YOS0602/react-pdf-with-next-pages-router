@@ -1,30 +1,21 @@
 "use client";
 
-import { PDFDocument } from "@/components/PDFDocument";
-import { PDFViewer } from "@react-pdf/renderer";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import type { NextPageWithLayout } from "../_app";
+
+const DynamicPDFDocument = dynamic(
+  () => import("@/components/PDFDocument").then((mod) => mod.MyPDFViewer),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  }
+);
 
 /**
  * Client Side でPDFをレンダリングする
  */
 const Page: NextPageWithLayout = () => {
-  const [pdfElement, setPdfElement] = useState<JSX.Element | null>(null);
-
-  useEffect(() => {
-    setPdfElement(<PDFDocument />);
-    return () => {
-      setPdfElement(null);
-    };
-  }, []);
-
-  return pdfElement ? (
-    <PDFViewer className="mx-auto" width={1200} height={1000}>
-      {pdfElement}
-    </PDFViewer>
-  ) : (
-    <p>Loading...</p>
-  );
+  return <DynamicPDFDocument />;
 };
 
 export default Page;

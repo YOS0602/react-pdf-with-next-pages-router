@@ -1,4 +1,11 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  PDFViewer,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -13,16 +20,33 @@ const styles = StyleSheet.create({
   },
 });
 
-// Create Document Component
-export const PDFDocument = () => (
+/**
+ * Create Document Component
+ */
+const PDFDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
         <Text>Section #1</Text>
+        <Text>こんにちは</Text>
       </View>
       <View style={styles.section}>
         <Text>Section #2</Text>
+        <Text>こんにちは</Text>
       </View>
     </Page>
   </Document>
 );
+
+export default PDFDocument;
+
+/**
+ * PDFViewer は web specific API を含むため Client Side 向け
+ */
+export const MyPDFViewer = () => {
+  return (
+    <PDFViewer className="mx-auto" width={1200} height={1000}>
+      <PDFDocument />
+    </PDFViewer>
+  );
+};
