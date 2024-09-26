@@ -19,11 +19,18 @@ export default function Home() {
     <div
       className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
     >
-      <div>
+      <div className="gap-2 flex">
         <Link href={"/client"}>
           <Button>Client</Button>
         </Link>
+        <Link href={"/server"}>
+          <Button>Server</Button>
+        </Link>
+        <Link href={"/api/pdf"}>
+          <Button>/api/pdf</Button>
+        </Link>
       </div>
+
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"

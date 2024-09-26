@@ -1,45 +1,5 @@
-import {
-  Document,
-  Font,
-  Page,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
-
-// FIXME api route からだとフォントファイルの解決ができない
-// Font.register({
-//   family: "HackGen35",
-//   fonts: [
-//     {
-//       src: "/HackGen35-Regular.ttf",
-//       fontStyle: "normal",
-//       fontWeight: "normal",
-//     },
-//     {
-//       src: "/HackGen35-Bold.ttf",
-//       fontStyle: "normal",
-//       fontWeight: "bold",
-//     },
-//   ],
-// });
-
-// Create styles
-const styles = StyleSheet.create({
-  page: {
-    // fontFamily: "HackGen35",
-    flexDirection: "row",
-    backgroundColor: "#E4E4E4",
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-  },
-  boldText: {
-    fontWeight: "bold",
-  },
-});
+import { styles } from "@/styles/pdf";
+import { Document, Page, Text, View } from "@react-pdf/renderer";
 
 /**
  * Create Document Component
