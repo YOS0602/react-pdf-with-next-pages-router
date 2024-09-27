@@ -1,7 +1,10 @@
 import path from "node:path";
 import { Font } from "@react-pdf/renderer";
 
-const getPublicAssetPath = (fileName: string) =>
+/**
+ * サーバーサイドからpublicフォルダ内の静的ファイルにアクセスするための絶対パスを取得する
+ */
+export const getPublicAssetPath = (fileName: string): string =>
   path.resolve("./public", fileName);
 
 // パス解決の問題でFont設定をサーバーサイド処理用に分ける必要がありそう
