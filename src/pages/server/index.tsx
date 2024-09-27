@@ -7,13 +7,12 @@ const Page: NextPageWithLayout<
 > = ({ fileName, fileURL }) => {
   return (
     <>
-      <p>fileName: {fileName}</p>
-      <p>fileURL: {fileURL}</p>
-      <p>ssr component</p>
-      <iframe
+      <p>サーバーサイドで作成したPDFを表示しています。</p>
+      <object
         className="mx-auto"
         title={fileName}
-        src={fileURL}
+        data={fileURL}
+        type="application/pdf"
         width={1000}
         height={1200}
       />

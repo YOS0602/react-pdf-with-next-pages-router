@@ -35,9 +35,12 @@ const DynamicPDFViewer = dynamic(
  */
 const Page: NextPageWithLayout = () => {
   return (
-    <DynamicPDFViewer className="mx-auto" width={1200} height={1000}>
-      <PDFDocument />
-    </DynamicPDFViewer>
+    <>
+      <p>クライアントサイドで作成したPDFを表示しています。</p>
+      <DynamicPDFViewer className="mx-auto" width={1200} height={1000}>
+        <PDFDocument />
+      </DynamicPDFViewer>
+    </>
   );
 };
 
